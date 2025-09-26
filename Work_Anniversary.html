@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+  <title>Param Sundari Official Trailer</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 87%;
+      z-index: 1;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      /* Remove tap highlight on iOS */
+      -webkit-touch-callout: none;
+      /* Disable callout on iOS */
+      user-select: none;
+      /* Prevent text selection */
+    }
+
+    /* .wrap { max-width: 760px; margin: 0 auto; } */
+    .wrap {
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background: black;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div id="overlay"></div>
+    <!-- <iframe src="ParamSundari.mp4" allow="autoplay" style="display:none;"></iframe> -->
+    <video id="adVideo" webkit-playsinline="true" disableremoteplayback="true" playsinline="true" preload="auto"
+      playsinline autoplay muted controls preload="metadata" src="Senthil_Anniversary.mp4" poster="">
+      Sorry, your browser doesn't support embedded videos.
+    </video>
+  </div>
+
+  <script>
+    const overlay = document.getElementById('overlay');
+    function unmuteAndPlay(e) {
+      const video = document.getElementById('adVideo');
+      video.muted = false;
+      var promise = video.play();
+      if (promise !== undefined) {
+        promise.then(_ => {
+          // Autoplay started!
+          overlay.parentNode.removeChild(overlay);
+        }).catch(error => {
+          // Autoplay was prevented.
+          // Show a "Play" button so that user can start playback.
+        });
+      }
+    }
+</script>
+</body>
+
+</html>
